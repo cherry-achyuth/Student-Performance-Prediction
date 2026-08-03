@@ -3,13 +3,40 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Student Performance Prediction</title>
+    <title>Scorewise | Student Performance Prediction</title>
+    <style>
+        :root { --ink:#15263f; --muted:#637188; --brand:#4158d0; --mint:#8ef0d0; }
+        * { box-sizing:border-box; }
+        body { margin:0; min-height:100vh; color:var(--ink); font-family:Inter,Segoe UI,Arial,sans-serif; background:linear-gradient(135deg,#f3f7ff 0%,#eefbf8 100%); }
+        main { width:min(1100px,calc(100% - 40px)); margin:auto; padding:28px 0 64px; }
+        nav { display:flex; align-items:center; justify-content:space-between; font-weight:800; }
+        .brand { letter-spacing:.04em; } .dot { color:#e76f51; }
+        .hero { display:grid; grid-template-columns:1.15fr .85fr; gap:48px; align-items:center; padding:100px 0 52px; }
+        .eyebrow { color:var(--brand); font-weight:800; letter-spacing:.12em; font-size:.78rem; text-transform:uppercase; }
+        h1 { font-size:clamp(2.7rem,6vw,5.5rem); letter-spacing:-.06em; line-height:.95; margin:14px 0 22px; }
+        p { color:var(--muted); font-size:1.1rem; line-height:1.65; max-width:570px; }
+        .button { display:inline-flex; margin-top:16px; background:var(--brand); color:white; padding:15px 23px; border-radius:12px; text-decoration:none; font-weight:800; box-shadow:0 12px 25px #4158d044; }
+        .card { padding:30px; border-radius:28px; background:#fff; box-shadow:0 22px 55px #25366020; }
+        .stat { padding:18px 0; border-bottom:1px solid #edf0f5; } .stat:last-child{border:0} .stat b{font-size:1.7rem;display:block;color:var(--brand)}
+        @media (max-width:700px) { .hero { grid-template-columns:1fr; padding-top:65px; gap:26px; } }
+    </style>
 </head>
 <body>
     <main>
-        <h1>Student Performance Prediction</h1>
-        <p>Predict a student's mathematics score from their profile and exam results.</p>
-        <a href="{{ url_for('predict_datapoint') }}">Predict Student Performance</a>
+        <nav><span class="brand">SCOREWISE<span class="dot">.</span></span><span>Student insights</span></nav>
+        <section class="hero">
+            <div>
+                <div class="eyebrow">Student performance estimator</div>
+                <h1>Turn learning signals into a clearer next step.</h1>
+                <p>Estimate a student’s mathematics score using their learning context, reading score, and writing score.</p>
+                <a class="button" href="{{ url_for('predict_datapoint') }}">Make a prediction →</a>
+            </div>
+            <aside class="card">
+                <div class="stat"><b>7 inputs</b><span>A balanced view of learning context</span></div>
+                <div class="stat"><b>Instant</b><span>A prediction as soon as you submit</span></div>
+                <div class="stat"><b>0–100</b><span>Clear score scale, easy to interpret</span></div>
+            </aside>
+        </section>
     </main>
 </body>
 </html>
